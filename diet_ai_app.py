@@ -65,7 +65,8 @@ def activity_multiplier(level: str) -> float:
         "Very active (6‑7 days/wk)": 1.725,
         "Extra active (athlete / labour)": 1.9,
     }
-    return mult[level]
+    return mult.get(level, 1.2)  # fallback to Sedentary
+
 
 
 def goal_adjustment(cals: float, goal: str) -> float:
